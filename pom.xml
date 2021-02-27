@@ -1,0 +1,26 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>basementbois</groupId>
+	<artifactId>duelsServer</artifactId>
+	<version>1</version>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>basementbois</groupId>
+			<artifactId>GameEngine</artifactId>
+			<version>1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.59.Final</version>
+		</dependency>
+	</dependencies>
+
+</project>
