@@ -1,7 +1,7 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>basementbois</groupId>
-	<artifactId>duels-server</artifactId>
+	<artifactId>duelsServer</artifactId>
 	<version>1</version>
 
 	<properties>
@@ -12,12 +12,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>basementbois</groupId>
-			<artifactId>game-engine</artifactId>
-			<version>1</version>
-		</dependency>
-		<dependency>
-			<groupId>basementbois</groupId>
-			<artifactId>duels-common</artifactId>
+			<artifactId>GameEngine</artifactId>
 			<version>1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
