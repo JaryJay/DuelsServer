@@ -37,7 +37,6 @@ public class DuelsServerHandler extends SimpleChannelInboundHandler<GameEvent> {
 
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, GameEvent msg) throws Exception {
-		System.out.println("hi");
 		Channel incoming = ctx.channel();
 		System.out.println(incoming.remoteAddress() + " sent a message: '" + ((MessageSentGameEvent) msg).getMessage() + "'.");
 		for (Channel channel : channels) {
