@@ -7,9 +7,9 @@ import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 
-public class GameServerInitializer extends ChannelInitializer<SocketChannel> {
+public class DuelsServerInitializer extends ChannelInitializer<SocketChannel> {
 
-	public GameServerInitializer() {
+	public DuelsServerInitializer() {
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class GameServerInitializer extends ChannelInitializer<SocketChannel> {
 		ChannelPipeline pipeline = channel.pipeline();
 		pipeline.addLast("decoder", new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
 		pipeline.addLast("encoder", new ObjectEncoder());
-		pipeline.addLast("handler", new GameServerHandler());
+		pipeline.addLast("handler", new DuelsServerHandler());
 	}
 
 }

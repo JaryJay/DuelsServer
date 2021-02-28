@@ -6,16 +6,16 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class GameServer {
+public class DuelsServer {
 
 	private final int port;
 
-	public GameServer(int port) {
+	public DuelsServer(int port) {
 		this.port = port;
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		new GameServer(8080).run();
+		new DuelsServer(8080).run();
 	}
 
 	public void run() throws InterruptedException {
@@ -25,7 +25,7 @@ public class GameServer {
 			ServerBootstrap bootstrap = new ServerBootstrap();
 			bootstrap.group(bossGroup, workerGroup);
 			bootstrap.channel(NioServerSocketChannel.class);
-			bootstrap.childHandler(new GameServerInitializer());
+			bootstrap.childHandler(new DuelsServerInitializer());
 			ChannelFuture future = bootstrap.bind(port).sync();
 			System.out.println("Chat Server initialization complete");
 			future.channel().closeFuture().sync();

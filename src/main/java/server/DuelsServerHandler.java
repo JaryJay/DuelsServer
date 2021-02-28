@@ -1,6 +1,7 @@
 package server;
 
 import common.event.GameEvent;
+import event.MessageSentGameEvent;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -8,11 +9,11 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
-public class GameServerHandler extends SimpleChannelInboundHandler<GameEvent> {
+public class DuelsServerHandler extends SimpleChannelInboundHandler<GameEvent> {
 
 	private static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
-	public GameServerHandler() {
+	public DuelsServerHandler() {
 	}
 
 	@Override
@@ -36,8 +37,9 @@ public class GameServerHandler extends SimpleChannelInboundHandler<GameEvent> {
 
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, GameEvent msg) throws Exception {
+		System.out.println("hi");
 		Channel incoming = ctx.channel();
-		System.out.println(incoming.remoteAddress() + " sent a message: '" + "'.");
+		System.out.println(incoming.remoteAddress() + " sent a message: '" + ((MessageSentGameEvent) msg).getMessage() + "'.");
 		for (Channel channel : channels) {
 			if (channel != incoming) {
 				System.out.println("Forwarding message to " + channel.remoteAddress() + ".");
