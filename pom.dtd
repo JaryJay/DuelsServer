@@ -1,0 +1,10 @@
+<!ELEMENT project (modelVersion,groupId,artifactId,version,properties,dependencies)>
+<!ELEMENT modelVersion (#PCDATA)>
+<!ELEMENT groupId (#PCDATA)>
+<!ELEMENT artifactId (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT properties (maven.compiler.source,maven.compiler.target)>
+<!ELEMENT maven.compiler.source (#PCDATA)>
+<!ELEMENT maven.compiler.target (#PCDATA)>
+<!ELEMENT dependencies (dependency+)>
+<!ELEMENT dependency (groupId,artifactId,version)>

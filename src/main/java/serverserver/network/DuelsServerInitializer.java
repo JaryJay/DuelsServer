@@ -1,4 +1,4 @@
-package server;
+package serverserver.network;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -6,10 +6,14 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
+import server.game.DuelsServerSideGame;
 
 public class DuelsServerInitializer extends ChannelInitializer<SocketChannel> {
 
-	public DuelsServerInitializer() {
+	private DuelsServerSideGame game;
+
+	public DuelsServerInitializer(DuelsServerSideGame game) {
+		this.game = game;
 	}
 
 	@Override
@@ -17,7 +21,7 @@ public class DuelsServerInitializer extends ChannelInitializer<SocketChannel> {
 		ChannelPipeline pipeline = channel.pipeline();
 		pipeline.addLast("decoder", new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
 		pipeline.addLast("encoder", new ObjectEncoder());
-		pipeline.addLast("handler", new DuelsServerHandler());
+		pipeline.addLast("handler", new DuelsServerHandler(game));
 	}
 
 }
